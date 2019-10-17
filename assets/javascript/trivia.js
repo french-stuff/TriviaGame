@@ -22,9 +22,27 @@ function check(){
         correct++;
 }
 
+   var messages = ["Great Job!", "That's just okay", "You really need to do better"];
+   var pictures = ["assets/images/darth.gif", "assets/images/hermione.gif", "assets/imageslion.gif"];
+
+   var range;
+
+     if (correct < 2) {
+         range = 2;
+     }
+
+     if (correct >= 2 && correct <= 3) {
+         range = 1;
+     }
+
+     if (correct >= 4) {
+         range = 0;
+     }
+
     document.getElementById("after_submit").style.visibility = "visible"; 
+    document.getElementById("message").innerHTML = messages[range];
     document.getElementById("number_correct").innerHTML = "You got " + correct + " correct.";
-}
+}   
 
 
 
