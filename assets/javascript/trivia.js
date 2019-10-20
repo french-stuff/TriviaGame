@@ -22,10 +22,11 @@ function check(){
         correct++;
 }
 
-   var messages = ["Great Job!", "That's just okay", "You really need to do better"];
-   var pictures = ["assets/images/darth.gif", "assets/images/hermione.gif", "assets/imageslion.gif"];
+let messages = ["Great Job!", "That's just okay", "You really need to do better"];
+let picture = ["img/1.gif", "img/2.gif", "img/3.gif"]; 
+   
 
-   var range;
+   let range;
 
      if (correct < 2) {
          range = 2;
@@ -40,9 +41,27 @@ function check(){
      }
 
     document.getElementById("after_submit").style.visibility = "visible"; 
+    
     document.getElementById("message").innerHTML = messages[range];
     document.getElementById("number_correct").innerHTML = "You got " + correct + " correct.";
-}   
+    document.getElementById("pictures").src = picture[range]; 
 
+}
+
+function timer(){
+    var sec = 30;
+    var timer = setInterval(function(){
+        document.getElementById('safeTimerDisplay').innerHTML='00:'+sec;
+        sec--;
+        if (sec === 0) {
+            clearInterval(timer);
+            alert("You're out of time!");
+        }
+    }, 1000);
+    
+}
+
+
+timer()
 
 
